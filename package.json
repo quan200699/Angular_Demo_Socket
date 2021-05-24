@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@types/socket.io": "^2.1.13",
+    "net": "^1.0.2",
     "rxjs": "^6.4.0",
     "sockjs-client": "^1.5.1",
     "stompjs": "^2.3.3",

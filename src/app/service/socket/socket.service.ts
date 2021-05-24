@@ -26,9 +26,9 @@ export class SocketService {
   connect() {
     const ws = new SockJS(`${API_URL}/ws`);
     this.stompClient = Stomp.over(ws);
-    this.stompClient.connect(() => {
+    this.stompClient.connect({}, frame => {
       this.stompClient.subscribe('/topic/products', data => {
-        const jsonData = JSON.parse(data);
+        const jsonData = JSON.parse(data.body);
         this.products.push(jsonData);
       });
     });
@@ -41,6 +41,6 @@ export class SocketService {
   }
 
   createProductUsingSocket(product) {
-    this.stompClient.send('/app/products', {}, stringify(product));
+    this.stompClient.send('/app/products', {}, JSON.stringify(product));
   }
 }
